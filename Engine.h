@@ -3,9 +3,13 @@
 
 class UEngine
 {
-public:
+private:
 	UEngine();
+	static UEngine* Instance;
+
+public:
 	~UEngine();
+	static UEngine* GetInstance();
 
 	void Init();
 	void Term();
@@ -20,7 +24,6 @@ private:
 	void Render();
 
 	UWorld* World;
-
 	bool bIsRunning;
 };
 

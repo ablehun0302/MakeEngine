@@ -1,8 +1,19 @@
 ﻿#include "Engine.h"
 
+UEngine* UEngine::Instance = nullptr;
+
 UEngine::UEngine()
 {
 	Init();
+}
+
+UEngine* UEngine::GetInstance()
+{
+	if (Instance == nullptr)
+	{
+		Instance = new UEngine();
+	}
+	return Instance;
 }
 
 UEngine::~UEngine()

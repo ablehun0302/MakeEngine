@@ -5,7 +5,7 @@ class AActor
 {
 public:
 	AActor(int InX = 0, int InY = 0, char InMesh = ' ');
-	~AActor();
+	virtual ~AActor();
 
 	void BeginPlay();
 	void Tick();

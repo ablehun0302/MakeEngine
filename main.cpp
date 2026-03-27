@@ -3,7 +3,7 @@
 
 int main()
 {
-	UEngine* Engine = new UEngine;
+	UEngine* Engine = UEngine::GetInstance();
 
 	Engine->GetWorld()->Load("level01.txt");
 
