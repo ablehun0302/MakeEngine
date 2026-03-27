@@ -4,7 +4,9 @@
 class APlayer : public AActor
 {
 public:
-	APlayer(int InX = 0, int InY = 0, char InMesh = 'P', int InZOrder = 4);
+	APlayer(int InX = 0, int InY = 0, char InMesh = 'P', int InZOrder = 40);
 	~APlayer();
+
+	virtual void Tick() override;
 };
 

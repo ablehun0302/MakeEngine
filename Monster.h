@@ -4,7 +4,7 @@
 class AMonster : public AActor
 {
 public:
-	AMonster(int InX = 0, int InY = 0, char InMesh = 'M', int InZOrder = 3);
+	AMonster(int InX = 0, int InY = 0, char InMesh = 'M', int InZOrder = 30);
 	~AMonster();
 };
 

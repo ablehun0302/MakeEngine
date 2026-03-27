@@ -8,7 +8,7 @@ public:
 	virtual ~AActor();
 
 	void BeginPlay();
-	void Tick();
+	virtual void Tick();
 	void Render();
 
 	void SetActorLocation(int InX, int InY);

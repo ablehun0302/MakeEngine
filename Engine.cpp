@@ -1,6 +1,9 @@
 ﻿#include "Engine.h"
 
+#include <conio.h>
+
 UEngine* UEngine::Instance = nullptr;
+char UEngine::InputValue = 0;
 
 UEngine::UEngine()
 {
@@ -50,6 +53,11 @@ UWorld* UEngine::GetWorld()
 
 void UEngine::Input()
 {
+	InputValue = 0;
+	if (_kbhit())
+	{
+		InputValue = _getch();
+	}
 }
 
 void UEngine::Tick()

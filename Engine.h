@@ -10,6 +10,7 @@ private:
 public:
 	~UEngine();
 	static UEngine* GetInstance();
+	static char InputValue;
 
 	void Init();
 	void Term();

@@ -9,6 +9,7 @@
 #include "Monster.h"
 #include "Wall.h"
 #include "Goal.h"
+#include "Floor.h"
 
 UWorld::UWorld()
 {
@@ -58,22 +59,26 @@ void UWorld::Load(std::string MapFileName)
 			if (Line[X] == '#')
 			{
 				SpawnActor<AWall>()->SetActorLocation(X, Y);
+				SpawnActor<AFloor>()->SetActorLocation(X, Y);
 			}
 			if (Line[X] == 'P')
 			{
 				SpawnActor<APlayer>()->SetActorLocation(X, Y);
+				SpawnActor<AFloor>()->SetActorLocation(X, Y);
 			}
 			if (Line[X] == 'M')
 			{
 				SpawnActor<AMonster>()->SetActorLocation(X, Y);
+				SpawnActor<AFloor>()->SetActorLocation(X, Y);
 			}
 			if (Line[X] == 'G')
 			{
 				SpawnActor<AGoal>()->SetActorLocation(X, Y);
+				SpawnActor<AFloor>()->SetActorLocation(X, Y);
 			}
 			if (Line[X] == ' ')
 			{
-				SpawnActor<AActor>()->SetActorLocation(X, Y);
+				SpawnActor<AFloor>()->SetActorLocation(X, Y);
 			}
 		}
 		Y++;
