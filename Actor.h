@@ -4,7 +4,7 @@
 class AActor
 {
 public:
-	AActor(int InX = 0, int InY = 0, char InMesh = ' ');
+	AActor(int InX = 0, int InY = 0, char InMesh = ' ', int InZOrder = 0);
 	virtual ~AActor();
 
 	void BeginPlay();
@@ -13,9 +13,12 @@ public:
 
 	void SetActorLocation(int InX, int InY);
 
+	int GetZOrder();
+
 protected:
 	int X;
 	int Y;
 	char Mesh;
+	int ZOrder;
 };
 

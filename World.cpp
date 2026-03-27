@@ -2,6 +2,7 @@
 
 #include <fstream>
 #include <string>
+#include <algorithm>
 
 #include "Actor.h"
 #include "Player.h"
@@ -77,6 +78,12 @@ void UWorld::Load(std::string MapFileName)
 		}
 		Y++;
 	}
+
+	std::sort(Actors.begin(), Actors.end(),
+		[](AActor* A, AActor* B)
+		{
+			return A->GetZOrder() < B->GetZOrder();
+		});
 }
 
 template<typename T>

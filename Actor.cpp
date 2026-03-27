@@ -2,7 +2,8 @@
 
 #include <Windows.h>
 
-AActor::AActor(int InX, int InY, char InMesh) : X(InX), Y(InY), Mesh(InMesh)
+AActor::AActor(int InX, int InY, char InMesh, int InZOrder) :
+    X(InX), Y(InY), Mesh(InMesh), ZOrder(InZOrder)
 {
 }
 
@@ -32,4 +33,9 @@ void AActor::SetActorLocation(int InX, int InY)
 {
     X = InX;
     Y = InY;
+}
+
+int AActor::GetZOrder()
+{
+    return ZOrder;
 }
