@@ -4,7 +4,7 @@
 class AGoal : public AActor
 {
 public:
-	AGoal();
+	AGoal(int InX = 0, int InY = 0, char InMesh = 'G');
 	~AGoal();
 
 };

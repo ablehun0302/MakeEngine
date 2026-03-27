@@ -5,7 +5,7 @@ int main()
 {
 	UEngine* Engine = new UEngine;
 
-	Engine->GetWorld()->SpawnActor();
+	Engine->GetWorld()->Load();
 
 	Engine->Run();
 

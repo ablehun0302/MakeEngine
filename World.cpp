@@ -1,5 +1,11 @@
 ﻿#include "World.h"
 
+#include "Actor.h"
+#include "Player.h"
+#include "Monster.h"
+#include "Wall.h"
+#include "Goal.h"
+
 UWorld::UWorld()
 {
 }
@@ -32,12 +38,17 @@ void UWorld::Render()
 
 void UWorld::Load()
 {
-	SpawnActor();
+	SpawnActor<APlayer>()->SetActorLocation(0, 0);
+	SpawnActor<AActor>()->SetActorLocation(0, 1);
+	SpawnActor<AMonster>()->SetActorLocation(0, 2);
+	SpawnActor<AWall>()->SetActorLocation(0, 3);
+	SpawnActor<AGoal>()->SetActorLocation(0, 4);
 }
 
+template<typename T>
 AActor* UWorld::SpawnActor()
 {
-	AActor* NewActor = new AActor();
+	AActor* NewActor = new T();
 	Actors.push_back(NewActor);
 
 	return NewActor;

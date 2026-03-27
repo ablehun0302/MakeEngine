@@ -14,10 +14,10 @@ public:
 
 	void Load();
 
+	template<typename T>
 	AActor* SpawnActor();
 	std::vector<AActor*>& GetActors();
 
 private:
 	std::vector<AActor*> Actors;
 };
-

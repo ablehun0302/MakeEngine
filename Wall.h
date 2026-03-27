@@ -4,7 +4,7 @@
 class AWall : public AActor
 {
 public:
-	AWall();
+	AWall(int InX = 0, int InY = 0, char InMesh = '#');
 	~AWall();
 
 };

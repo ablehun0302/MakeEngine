@@ -27,3 +27,9 @@ void AActor::Render()
 
     std::cout << Mesh;
 }
+
+void AActor::SetActorLocation(int InX, int InY)
+{
+    X = InX;
+    Y = InY;
+}

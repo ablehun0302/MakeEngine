@@ -4,7 +4,7 @@
 class APlayer : public AActor
 {
 public:
-	APlayer();
+	APlayer(int InX = 0, int InY = 0, char InMesh = 'P');
 	~APlayer();
 };
 
