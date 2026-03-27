@@ -1,5 +1,8 @@
 ﻿#include "World.h"
 
+#include <fstream>
+#include <string>
+
 #include "Actor.h"
 #include "Player.h"
 #include "Monster.h"
@@ -36,13 +39,44 @@ void UWorld::Render()
 	}
 }
 
-void UWorld::Load()
+void UWorld::Load(std::string MapFileName)
 {
-	SpawnActor<APlayer>()->SetActorLocation(0, 0);
-	SpawnActor<AActor>()->SetActorLocation(0, 1);
-	SpawnActor<AMonster>()->SetActorLocation(0, 2);
-	SpawnActor<AWall>()->SetActorLocation(0, 3);
-	SpawnActor<AGoal>()->SetActorLocation(0, 4);
+	std::ifstream MapFile(MapFileName);
+
+	if (!MapFile.is_open())
+	{
+		return;
+	}
+
+	std::string Line;
+	int Y = 0;
+	while (std::getline(MapFile,Line))
+	{
+		for (int X = 0; X < Line.length(); X++)
+		{
+			if (Line[X] == '#')
+			{
+				SpawnActor<AWall>()->SetActorLocation(X, Y);
+			}
+			if (Line[X] == 'P')
+			{
+				SpawnActor<APlayer>()->SetActorLocation(X, Y);
+			}
+			if (Line[X] == 'M')
+			{
+				SpawnActor<AMonster>()->SetActorLocation(X, Y);
+			}
+			if (Line[X] == 'G')
+			{
+				SpawnActor<AGoal>()->SetActorLocation(X, Y);
+			}
+			if (Line[X] == ' ')
+			{
+				SpawnActor<AActor>()->SetActorLocation(X, Y);
+			}
+		}
+		Y++;
+	}
 }
 
 template<typename T>

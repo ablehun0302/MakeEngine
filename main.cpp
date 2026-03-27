@@ -5,7 +5,7 @@ int main()
 {
 	UEngine* Engine = new UEngine;
 
-	Engine->GetWorld()->Load();
+	Engine->GetWorld()->Load("level01.txt");
 
 	Engine->Run();
 

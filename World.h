@@ -12,7 +12,7 @@ public:
 	void Tick();
 	void Render();
 
-	void Load();
+	void Load(const std::string MapFileName);
 
 	template<typename T>
 	AActor* SpawnActor();
