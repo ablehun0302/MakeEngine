@@ -3,14 +3,11 @@
 
 int main()
 {
-	UEngine* Engine = UEngine::GetInstance();
+	GEngine->GetWorld()->Load("level01.txt");
 
-	Engine->GetWorld()->Load("level01.txt");
+	GEngine->Run();
 
-	Engine->Run();
-
-	delete Engine;
-	Engine = nullptr;
+	delete GEngine;
 
 	return 0;
 }

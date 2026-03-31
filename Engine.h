@@ -1,5 +1,6 @@
 ﻿#pragma once
 #include "World.h"
+#include "Renderer.h"
 
 class UEngine
 {
@@ -18,6 +19,7 @@ public:
 	void Run();
 
 	UWorld* GetWorld();
+	URenderer* GetRenderer();
 
 private:
 	void Input();
@@ -25,6 +27,8 @@ private:
 	void Render();
 
 	UWorld* World;
+	URenderer* Renderer;
 	bool bIsRunning;
 };
 
+#define GEngine			UEngine::GetInstance()

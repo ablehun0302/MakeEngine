@@ -27,13 +27,16 @@ UEngine::~UEngine()
 void UEngine::Init()
 {
 	World = new UWorld;
+	Renderer = new URenderer;
 	bIsRunning = true;
 }
 
 void UEngine::Term()
 {
 	delete World;
+	delete Renderer;
 	World = nullptr;
+	Renderer = nullptr;
 }
 
 void UEngine::Run()
@@ -51,6 +54,11 @@ UWorld* UEngine::GetWorld()
 	return World;
 }
 
+URenderer* UEngine::GetRenderer()
+{
+	return Renderer;
+}
+
 void UEngine::Input()
 {
 	InputValue = 0;
@@ -63,6 +71,11 @@ void UEngine::Input()
 void UEngine::Tick()
 {
 	World->Tick();
+
+	if (InputValue == 'p')
+	{
+		bIsRunning = false;
+	}
 }
 
 void UEngine::Render()

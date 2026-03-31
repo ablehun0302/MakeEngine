@@ -4,6 +4,7 @@
 #include <string>
 #include <algorithm>
 
+#include "Engine.h"
 #include "Actor.h"
 #include "Player.h"
 #include "Monster.h"
@@ -35,10 +36,14 @@ void UWorld::Tick()
 
 void UWorld::Render()
 {
+	GEngine->GetRenderer()->Clear();
+
 	for (AActor* Actor : Actors)
 	{
 		Actor->Render();
 	}
+
+	GEngine->GetRenderer()->Flip();
 }
 
 void UWorld::Load(std::string MapFileName)

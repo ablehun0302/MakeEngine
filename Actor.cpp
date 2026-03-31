@@ -23,12 +23,13 @@ void AActor::Tick()
 
 void AActor::Render()
 {
-    COORD Coordinate;
+    /*COORD Coordinate;
     Coordinate.X = X;
     Coordinate.Y = Y;
     SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), Coordinate);
 
-    std::cout << Mesh;
+    std::cout << Mesh;*/
+    GEngine->GetRenderer()->Render(X, Y, Mesh);
 }
 
 void AActor::SetActorLocation(int InX, int InY)
